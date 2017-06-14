@@ -1,0 +1,16 @@
+
+    <div class="pageNumber">
+        <tmpl:page>
+            {if $is_dots}<span class="page_dots">...</span>
+            {elseif $verbal}
+                <a class="{$class} {if $active}disabled{/if}" {$link}>
+                    {* {if $class=='prev_page'}{else}{/if} *}
+                </a>  
+            {elseif $active}
+                <a class="page_list active" >{$name}</a>              
+            {else}
+                <a class="{if $class}{$class}{else}page_list{/if} pgl_{$name}" {$link}>{$name}</a>
+            {/if}
+        </tmpl:page>
+       
+    </div>

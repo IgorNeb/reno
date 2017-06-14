@@ -1,0 +1,102 @@
+
+{if $show_title} 
+    <div class="h2">{$title}</div>       
+{/if}
+
+<form id="form_{$uniq_name}" class="bottom-form" action="/{#LANGUAGE_URL}action/{$action_form}/" enctype="multipart/form-data" method="POST" delta-ajax="on">
+    <input type="hidden" name="_return_path" value="{if $destination_url}{$destination_url}{else}{#SITE_STRUCTURE_URL}/ok/{/if}">
+    <input type="hidden" name="form_name" value="{$uniq_name}">
+    <input type="hidden" name="_error_path" value="{#CURRENT_URL_FORM}">
+    <input type="hidden" name="current_path" value="{#CURRENT_URL_FORM}">
+    <tmpl:hidden>
+            <input type="hidden" name="form[{$uniq_name}]" value="{$default_value}">
+    </tmpl:hidden>
+
+    <div id="{$uniq_name}_error" class="line_error">{$error}</div>
+     
+    <tmpl:row>
+        <div class="field-description">
+            {if $type == 'devider'}
+                <p>{$title}</p>
+                
+            {elseif $uniq_name == 'phone' && $is_check}   
+               
+                    <div class="field {if $required}field-must{/if}">
+                        <input type="tel" id="field-{$uniq_name}" class="field-input field-{$uniq_name}" name="form[{$uniq_name}]" value="{$default_value}"/>
+                        <label for="field-{$uniq_name}" class="field-label"><span>{$title}</span></label>
+                    </div>
+                    <div class="field-check field-phonemask">
+                        <input type="checkbox" id="field-{$uniq_name}-mask"/>
+                        <label for="field-{$uniq_name}-mask">{text name="MSG_FROM_PHONE_NOMASK"}</label>
+                    </div>
+              
+            
+            {else}
+                
+            
+                    
+                <div class="field{if $type == 'enum'}-select{/if} {$class_name} {if $required}field-must{/if}">
+                
+                {if $type == 'text' || $type == 'integer' || $type == 'textarea'}                
+                    <input type="text" id="field-{$uniq_name}" class="field-input field-{$uniq_name}" name="form[{$uniq_name}]" value="{$default_value}" />
+                    <label for="field-{$uniq_name}" class="field-label"><span>{$title}</span></label>
+                         
+                {elseif $type == 'file'}
+                        <div class="file_upload">
+                            <button type="button" class="blue_btn">{text name="MSG_FORM_FILE_CHOOSE"}</button>
+                            <div class="file_name">{$title}</div>
+                            <input type="file" name="form[{$uniq_name}]" value="">
+                        </div>
+                 
+                {elseif $type == 'enum' || $type == 'model'}
+                    <select name="form[{$uniq_name}]"  data-placeholder="{$title}{if $required}*{/if}"  placeholder="{$title}{if $required}*{/if}" class="chosen-select category-select mob-select{$class_name} select--{$uniq_name}">
+                        <option value="0">{if #IS_MOBILE}{$title}{if $required}*{/if}{/if}</option>
+                        {html_options options=$info}
+                    </select>                   
+               
+                {elseif $type == 'set'}
+                    <div class="{$class_name}-block ">
+                        <input type="text" id="input_{$uniq_name}" class="placeh" placeholder="{$title}"/>
+                    </div> 
+                    <ul class="label-list">                       
+                        <tmpl:info>
+                        <li>
+                            <input type="checkbox" name="form[{$uniq_name}][]" class="set_{$uniq_name}" value="{$value}" id="{$uniq_name}_{$key}" />
+                           <label for="{$uniq_name}_{$key}">{$value}</label>
+                        </li>
+                        </tmpl:info>
+                    </ul>    
+               {*
+                {elseif $type == 'textarea'}
+                    <textarea id="field-{$class_name}" class="field-input field-{$uniq_name}"  placeholder="{$title}" name="form[{$uniq_name}]"></textarea>
+                    <label for="field-{$uniq_name}" class="field-label"><span>{$title}</span></label>
+                 *}     
+                {/if}
+               
+               </div>     
+             
+            {/if}
+        
+        </div>    
+	</tmpl:row>
+    
+	{if #FORM_CAPTCHA && !Auth::isLoggedIn()} 
+    <div class="flied capcha">
+        <div class="captha_wrap">{$captcha_html}</div>
+        <input type="text" maxlength="6" class="input captha_input" size="6" name="captcha_value" placeholder="{text name='MSG_FORM_CAPTCHA'}">
+    </div>		                
+	{/if}        
+
+   
+    <a class="btn-blue btn-form" onclick="return checkRequired('form_{$uniq_name}');">{$button}</a>
+    {if $is_agree}
+    <div class="field-check field-agree">
+        <input type="checkbox" id="field-agree" checked="checked">
+        <label for="field-agree">{text name="MSG_FORM_CHECK_AGREE"}</label>
+    </div>
+    {/if}
+    
+</form>
+
+{if $uniq_name !== 'callme'}<div class="margin"></div>{/if}
+

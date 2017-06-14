@@ -1,0 +1,41 @@
+<div class="menu-top-scroll">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div class="menu__main">
+                <tmpl:menu>
+                    <div class="menu__container">
+                        {if $show_submenu}
+                            <div class="menu__title">{$name}</div>
+                            <div class="menu__box">
+                            <tmpl:submenu>
+                                <a data-wow-delay="0.{$index}s" data-link="{$uniq_name}" class="slideInLeft wow" >{$name}</a>
+                            </tmpl:submenu>
+                            </div>
+                        {else}
+                        <a class="no-after" {if $url}href='{$url}'{/if} title="{$name}" class="{$class}" >{$name}</a>
+                        {/if}
+                    </div>
+                </tmpl:menu>
+            </div>
+            <div class="menu__second">
+                <tmpl:menu_two><a {if $url}href='{$url}'{/if} title="{$name}" class="{$class}" >{$name}</a></tmpl:menu_two>
+            </div>
+
+        </div>
+    </div>
+    <div class="swiper-scrollbar"></div>
+</div>
+
+<a class="logo-winner"></a>
+
+<div class="hover hidden-mob">
+    <tmpl:models>
+        <div data-link="{$uniq_name}" class="hover__box">
+            <tmpl:modification>
+                <a {if $url}href='{$url}'{/if} data-wow-delay="0.{$index}s" class="hover__item fadeIn wow">
+                    <div class="hover__title">{$name}</div><img src="{$image}" alt="{$name}"/>
+                </a>
+            </tmpl:modification>
+        </div>
+    </tmpl:models>    
+</div>

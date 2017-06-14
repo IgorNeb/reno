@@ -1,0 +1,44 @@
+ <div id="searchForm">
+    <form method="post" name="search" id="search" action="/action/admin/shop/search_products/">   
+        <input type="hidden" name="table_name" value="{$table_name}">
+        <input type="hidden" name="version_show" value="{$version_show}">
+        <input type="hidden" name="product_id" value="{$product_id}">
+        <input type="hidden" name="object_id" value="{$object_id}">
+        <table style="width:500px;margin:0px auto;" >
+            <tr>
+                <td >Название:</td>
+                <td><input type="text" style="width:300px;" name="form[name]" value=""></td>
+            </tr>
+            <tr>
+                <td >Артикул товара:</td>
+                <td><input type="text" style="width:300px;" name="form[articul]" value=""></td>
+            </tr>
+            <tr>
+                <td >Категория:</td>
+                <td>
+                    <select name="form[group_id]"  style="width:297px;height:30px;">
+                            {$group_options}
+                    </select>
+                </td>
+            </tr>                      
+            <tr>
+                <td >ID:</td>
+                <td><input type="text" style="width:300px;" name="form[id]" value=""></td>
+            </tr>
+            <tr>   <td >Показать картинки:</td>
+                <td><input type="checkbox" name="show_image" value="1"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                     <a href="#" class="btn btn-grey small" 
+                        style="margin: 0px auto;display: block;width: 100px;" 
+                        onclick="AjaxRequest.form('search', '');return false;">
+                        <i class="aicons search">&nbsp;</i> Поиск
+                     </a>
+                </td>
+            </tr>
+        </table>
+        <br/>
+    </form>
+</div>    
+<style> .custombox-modal {top: 200px;}</style>

@@ -1,0 +1,104 @@
+﻿<categories>
+	<category id="e5b52137-0b80-11e6-80e0-00e081de3935">
+		<title>Кухня</title>
+	</category>
+	<category id="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3" parentId="a9b41de1-0f24-4ff9-8449-47a35a33e3a0">
+		<title>Приготовление пищи</title>
+	</category>
+	<category id="3da7d6aa-c911-4051-8c05-c21117c815b3" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Сковороды</title>
+	</category>
+	<category id="02799d59-3527-4293-9399-fa16d1d89de7" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Кастрюли</title>
+	</category>
+	<category id="1597c380-454f-4eef-b968-9dfff4ed0824" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Наборы кастрюль, сковородок</title>
+	</category>
+	<category id="a252ece0-a9e4-4099-a4fe-7c381f741b84" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Крышки для кастрюль, сковородок</title>
+	</category>
+	<category id="9668394a-2aa7-4ff6-9789-82a0d361013e" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Формы для запекания, противни, гусятницы</title>
+	</category>
+	<category id="f645187d-61cf-474e-a722-6adbd3e3e7f4" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Ножи кухонные</title>
+	</category>
+	<category id="2dea6c6c-2d3d-4a34-9f97-1097b8c4b554" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Аксессуары для кухонных ножей</title>
+	</category>
+	<category id="c3116c7e-da4d-401f-9191-7d9d0a7d3dcd" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Терки, шинковки, измельчители</title>
+	</category>
+	<category id="016524cf-3b64-4d31-832b-f90f03c57389" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Разделочные доски</title>
+	</category>
+	<category id="a93b3f07-91f3-4d0d-8a47-003d1414bc92" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Кухонные принадлежности</title>
+	</category>
+	<category id="01d1a50b-6d90-41a5-a0f7-1e671d1ede04" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Дуршлаги, сито</title>
+	</category>
+	<category id="16770a2a-d68d-4f99-b6f7-f4a28fee07e9" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Миски</title>
+	</category>
+	<category id="cae9c234-59d2-473d-be05-ba9831b74bfe" parentId="14d78fb8-fe48-4703-a8e3-df7fe59d8ef3">
+		<title>Наборы для фондю, мармиты</title>
+	</category>
+	<category id="c0d52089-333b-477c-b332-708e5103afdc" parentId="a9b41de1-0f24-4ff9-8449-47a35a33e3a0">
+		<title>Хранение продуктов</title>
+	</category>
+	<category id="497c962e-e20c-4fae-90b6-ccb0ae54813e" parentId="c0d52089-333b-477c-b332-708e5103afdc">
+		<title>Хлебницы</title>
+	</category>
+	<category id="4300c696-59f6-4ff1-a106-3819c16833ab" parentId="c0d52089-333b-477c-b332-708e5103afdc">
+		<title>Емкости для сыпучих продуктов</title>
+	</category>
+	<category id="5d6d3472-20e3-41fe-bde0-fb5fd618b895" parentId="c0d52089-333b-477c-b332-708e5103afdc">
+		<title>Пищевые контейнеры</title>
+	</category>
+	<category id="4da23107-44cd-409c-b2e3-fe2e38164284" parentId="a9b41de1-0f24-4ff9-8449-47a35a33e3a0">
+		<title>Сервировка стола</title>
+	</category>
+	<category id="0026f040-3e69-4d68-9ae5-0a8abe6e237e" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Сервизы</title>
+	</category>
+	<category id="d949f7c3-0874-4d14-b82c-c2cfac0b1f5c" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Тарелки</title>
+	</category>
+	<category id="e1f1dd1d-b2f5-478c-8121-8ee56298766c" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Столовые приборы</title>
+	</category>
+	<category id="3eb1c345-4fa7-4840-8b98-957ccb7898b2" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Бокалы, стаканы, рюмки</title>
+	</category>
+	<category id="4fa55c04-95c9-4830-842c-a9ac4a47f339" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Кувшины, графины, наборы для напитков</title>
+	</category>
+	<category id="6eb9a648-9028-4a46-b1ff-0e4a26bf2c0c" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Предметы сервировки</title>
+	</category>
+	<category id="3d6c6a21-a016-453c-9ac7-53adcd28cd78" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Чашки</title>
+	</category>
+	<category id="c4c3bf89-6837-4fb3-a4e8-7e7cc910820c" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Наборы для специй и соусов</title>
+	</category>
+	<category id="03ab8ed5-de93-43ba-b3ad-f042ed821df3" parentId="4da23107-44cd-409c-b2e3-fe2e38164284">
+		<title>Наборы для суши</title>
+	</category>
+	<category id="666f5ff5-eb40-4b76-9bac-acca7f6e31c7" parentId="a9b41de1-0f24-4ff9-8449-47a35a33e3a0">
+		<title>Кофе, чай</title>
+	</category>
+	<category id="582af4ea-d481-4767-afa1-d2d13238325e" parentId="666f5ff5-eb40-4b76-9bac-acca7f6e31c7">
+		<title>Чайники</title>
+	</category>
+	<category id="32b69607-43fb-4496-aa07-0b8cd1e2a1ee" parentId="666f5ff5-eb40-4b76-9bac-acca7f6e31c7">
+		<title>Заварочные чайники</title>
+	</category>
+	<category id="3f566be3-6d8e-451a-87db-80028a7ff53c" parentId="666f5ff5-eb40-4b76-9bac-acca7f6e31c7">
+		<title>Турки, гейзерные кофеварки</title>
+	</category>
+	<category id="c0e4ecee-ed3f-47f5-833c-f59320cf8604" parentId="666f5ff5-eb40-4b76-9bac-acca7f6e31c7">
+		<title>Термосы</title>
+	</category>
+</categories>

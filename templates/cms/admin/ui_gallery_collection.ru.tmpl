@@ -1,0 +1,18 @@
+<tmpl:photo>
+<div class="gallery_image_layer {if !$active}disabled{/if}" id="il_{$id}" data-id="{$id}">
+    <div class="gallery_image_layer_toolbar">
+            <div>{$size}</div>
+            
+            <a class="add" title="Прикрепить товары" href="./goods/?gallery_id={$id}">&nbsp;</a>
+            <a class="fancy zoom" data-fancybox-group="gallery" title="{$title}" alt="{$title}" href="/uploads/{$photo}" >&nbsp;</a>
+            <a href="#" title="Редактировать" class="edit" onclick="EditWindow('{$id}', '{@table_id}', '', '{@current_url_link}', '{#LANGUAGE_CURRENT}', '');return false;">&nbsp;</a>
+            
+    </div>
+    <div rel="image_holder" class="image_holder" >
+            <img src="/i/cms_gallery/{$photo}" />
+    </div>
+    
+    <a href="#" title="Удалить" class="del" onclick="gallery_delete('{$id}', '{$photo}'); return false;">Удалить файл</a>
+    
+</div>
+</tmpl:photo>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="{#LANGUAGE_CURRENT}">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">	
+    <title>{$title}</title>
+    <meta name="description" content="{$description}" />
+    <meta name="theme-color" content="#f2f2f2">
+    <link href="{#CMS_URL}favicon.ico" rel="shortcut icon" />
+
+	{*
+		{if $follow} <meta name="robots" content="noindex,follow" />
+		{elseif !$is_index} <meta name="robots" content="noindex,nofollow" />
+		{else}	<meta name="robots" content="index,follow" /> 	{/if}
+	*}
+	
+    <meta name="robots" content="noindex,nofollow" />
+    
+    {if $socImage}
+            <meta property="og:title" content="{$title}" />
+            <meta property="og:description" content="{$description}"/>
+            <meta property="og:image" content="http://{#CMS_HOST}{$socImage}"/>
+    {/if}
+        
+    {$canonical}
+    
+    <link href="{#DESIGN_URL}css/bootstrap.grid.css" rel="stylesheet"/>
+    <link href="{#DESIGN_URL}css/main.css" rel="stylesheet"/>
+
+    <script src="{#DESIGN_URL}js/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <script src="{#DESIGN_URL}js/share42.js" type="text/javascript"></script>
+    <script type="text/javascript">var langURL = '{#LANGUAGE_URL}';</script>
+</head>
+<body>
+<!--[if IE]>
+<div class="interbet_block">
+    <div class="ie_bg"   style="background-image:url(/design/renault/img/ie10.png)">
+        <div class="window_block">
+            <div class="message_wrapper">
+                <div class="bottom_block">
+                    <p class="bold">Ви використовуєте застарілу версію  Internet Explorer</p>
+                    <p class="next_p">Щоб отримати можливість ознайомитися з сайтом, поновіть Ваш браузер</p>
+                    <a href="http://browsehappy.com/" rel="nofollow">Оновити браузер</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<![endif]--><!--[if IE]><![if !IE]><![endif]-->
+
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="wrap_header">
+                    <button class="toggle_menu">
+                    </button>
+                    <p class="name_page">{$headline}</p>
+                    <nav class="header_menu">
+                        <div class="wrap_btn_close">
+                            <span class="btn_close"></span>
+                        </div>
+                        <ul>
+                            <tmpl:topMenu>
+                                <li><a class="{$class}" title="{$name}" {if $url}href="{$url}"{/if}>{$name}</a>
+                            </tmpl:topMenu>
+                        </ul>
+                    </nav>
+                    <div class="logo">
+                        <a {if !$isMain}href="/{#LANGUAGE_URL}"{/if} title="{#SEO_LOGO_A_TITLE}" class="logo">
+                        <img src="{#DESIGN_URL}svg/logo.png" alt="{#SEO_LOGO_A_TITLE}"">
+                        </a>
+                        <a {if !$isMain}href="/{#LANGUAGE_URL}"{/if} title="{#SEO_LOGO_A_TITLE}" class="logo_mobile">
+                        <img src="{#DESIGN_URL}img/logo_mob.svg" alt="{#SEO_LOGO_A_TITLE}">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>   
+
+    <main>
+    {if $image_top}    
+     <section class="header_image">
+            <div class="container">
+                <div class="row">
+                    <div class="slide_content">
+    
+                        <div class="img_wrap">
+                            <img {if #IS_MOBILE} src="/i/mobcontop/{$image_top}"
+                                 {elseif #IS_TABLET} src="/i/tabcontop/{$image_top}"
+                                 {else} src="/i/contop/{$image_top}"{/if} alt="{$headline}">
+                        </div>
+    
+                        <div class="content_wrap">
+                            <div class="text_wrap">
+                                {if $subtitle}<p>{$subtitle}</p>{/if}
+                                {if $announcement}<span>{$announcement}</span>{/if}
+                            </div>
+                            
+                            
+                            <div class="btn_wrap">
+                                <a href="/{#LANGUAGE_URL}test-drive/" onclick="return scrollToElem('#wraptestdrive');" class="btn_yellow">{text name="MSG_FORM_TO_TEST_DRIVE"}*</a>
+                            </div>
+                            <div class="wrap_more">
+                                <p>{text name="MSG_SITE_TOP_MANAGER"}</p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>  
+   
+    {/if}
+    
+    <section class="form_section">
+        <div class="container">
+            <div class="row">
+                {if $isMain}{$content}
+                {else}
+
+                <div {if $page_class} class="{$page_class}" {else} class="static-page" {/if}>
+
+                    {$breacrumbs}
+                    
+                    
+                    {$content}        
+                    {if $seo_content}<div class="b-content-seo">{$seo_content}</div>{/if}
+
+                </div>
+                {/if}
+            </div>
+        </div>
+    </section>
+         
+   </main>
+    <footer>       
+        <div class="container">
+            <div class="row">
+                <div class="footer_wrap">
+                    <div class="social">
+                        <p>Соціальні медіа</p>
+                        <div class="icon_wrap">
+                            <tmpl:socbutton>
+                                <a href="{$link}" class="{$class} social_icon" target="_blank" {if $image}style="background-image: url('{$image}')"{/if}></a>
+                            </tmpl:socbutton>                            
+                        </div>
+                    </div>
+                    {*<div class="language">
+                        <span class="active">Українська</span>
+                        <div class="hidden_lang"></div>
+                    </div>*}
+                </div>
+                <div class="footer_bottom">
+                    <span class="left"><a href="https://www.renault.ua" target="_blank">Корпоративний сайт</a></span>
+                    <span class="right">{block name="copyright"}</span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<!--<p id="js_test"></p>-->
+
+<script>
+    var test = $('#js_test').html();
+</script>
+<div id="ajax_responses"></div>
+<div id="modal_form"></div>
+
+<link href="{#DESIGN_URL}css/jquery-ui.min.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="{#DESIGN_URL}js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="{#DESIGN_URL}js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{#DESIGN_URL}js/script.js"></script>
+    <script type="text/javascript" src="/js/jquery/jquery.fancybox.js"></script>
+
+    <link href="/css/extras/fancy/jquery.fancybox.css" rel="stylesheet"/>
+
+    <script type="text/javascript" src="/js/jquery/jquery.form.min.js"></script>    
+    <script type="text/javascript" src="/js/shared/global_site.js" ></script>
+    <script type="text/javascript" src="/js/shared/functions.js" ></script>
+    
+    <link href="/css/extras/custombox/jquery.custombox.css" rel="stylesheet"/>
+    <script type="text/javascript" src="/js/jquery/jquery.custombox.js"  ></script>
+
+    <!--[if IE]><![endif]><![endif]-->
+    </body>
+
+</html>

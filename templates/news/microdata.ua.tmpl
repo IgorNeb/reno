@@ -1,0 +1,53 @@
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{$news.url}"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{$avg_rating}",
+    "reviewCount": "{$count_rating}"
+  },
+  "headline": "{$news.headline}",
+  "author": {
+    "@type": "Organization",
+    "name": "Vinzer Home"
+  },
+  "datePublished": "{$news.date_micro}",
+  "dateModified": "{$news.date_micro}",{if $news.img_content}
+  "image": {
+    "@type": "ImageObject",
+    "url": "{#CMS_URL}i/article/{$news.img_content}",
+    "height": 650,
+    "width": 1950
+  },{/if}
+  "description": "{$announcement.info}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Vinzer Home",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{#CMS_URL}design/vinzer/img/logo.png"
+    }
+  }
+  {if $show_reviews},
+  "review": [   
+    <tmpl:comments>{if $index>0},{/if}
+    {
+      "@type": "Review",
+      "author": "{$login}",
+      "datePublished": "{$date}",
+      "description": "{$comment}",
+      "reviewRating": {
+        "@type": "Rating",
+        "bestRating": "5",
+        "ratingValue": "{$rating}",
+        "worstRating": "1"
+      }
+    }
+    </tmpl:comments>
+  ]
+  {/if}  
+}

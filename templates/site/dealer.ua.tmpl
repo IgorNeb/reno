@@ -1,0 +1,81 @@
+<div class="col-12">
+            <div class="c_040-3 c_040-2" >
+                <div class="display-col-third">
+                    <div class="display-col-half">
+                        <div class="heading-group">
+                            <h2>
+                                <span class="position marker-"></span>
+                                <span class="dealer-trading-name">{$name}</span>
+                            </h2> 
+                        </div>
+                    </div>
+                    
+                    <div class="display-col-half ">
+                        <div class="dealer-address">
+                            <h3>Адреса</h3>
+                            <p>{$address}</p>
+                        </div>
+                        
+                        <div class="dealer-cta">
+                            <ul class="detail-list">
+                                <li>
+                                    <a data-dealer-action="get-direction" href="https://maps.google.com/maps?daddr={$latlng}&amp;saddr=" class="icon-directions" data-adobe-tagging="M.dealerDirections" target="_blank" data-tld55="external">
+                                        Напрямок
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="display-col-third">
+                    <div class="display-col-half">
+                        {if $phone || $site}
+                        <div class="dealer-contact">
+                            <h3>Контакт</h3> 
+                            {if $phone}
+                            <p class="contact-us">
+                                <a data-dealer-action="call" href="tel:{$phone}" data-tld55="internal">
+                                    <span class="label">Телефон</span>
+                                    <span class="tel">{$phone}</span>
+                                </a>
+                            </p>
+                            {/if}
+                            
+                            {if $site}
+                            <ul class="detail-list">
+                                 
+                                <li>
+                                    <a data-dealer-action="discover-dealer" 
+                                       href="{$site}" class="icon-external-link" target="_blank" data-tld55="external_rewrited">
+                                        Сайт
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                            {/if}                            
+                        </div>
+                        {/if}
+                        
+                        {if $time}
+                        <div class="dealer-hoursll">
+                            <h3>Режим роботи</h3>
+                            <p>{$time}</p>
+                        </div>
+                        {/if}
+    
+                    </div>
+                </div>
+                
+               
+            </div>
+            
+        </div>
+
+        <div class="item-actions-last">
+            <div class="btn_wrap">
+                    <button type="button" class="btn_yellow btn-select-this-dealer" onclick="chooseDealer('{$dealer_name}');">
+                            Вибрати цього дилера
+                    </button>
+            </div>
+        </div>

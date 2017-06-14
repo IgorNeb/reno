@@ -1,0 +1,9 @@
+
+    <div class="breadcrumbs print-none">
+        <tmpl:path>
+            <span typeof="v:Breadcrumb">
+                {if $url}<a href="{$url}"  title="{$name}" rel="v:url" property="v:title">{$name}</a>
+                {else}   <a href="#"  title="{$name}" rel="v:url" property="v:title" class="last">{$name}</a>{/if}
+            </span>
+        </tmpl:path>
+    </div>

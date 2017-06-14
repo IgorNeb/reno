@@ -1,0 +1,53 @@
+/* iCheck plugin Futurico skin
+----------------------------------- */
+.icheckbox_futurico,
+.iradio_futurico {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 12px;
+    height: 14px;
+    background: url('/design/cms/delta_img/sprite_icons.png') no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_futurico {
+    background-position: -350px -224px;
+}
+    .icheckbox_futurico.checked {
+        background-position: -364px -224px;
+    }
+    .icheckbox_futurico.disabled {
+        background-position: -350px -224px;
+        cursor: default;
+    }
+    .icheckbox_futurico.checked.disabled {
+         background-position: -364px -224px;
+    }
+
+.iradio_futurico {    
+    background-position: -400px -225px;
+}
+    .iradio_futurico.checked {
+         background-position: -414px -225px;
+    }
+    .iradio_futurico.disabled {
+        background-position: -400px -225px;
+        cursor: default;
+    }
+    .iradio_futurico.checked.disabled {
+       background-position: -414px -225px;
+    }
+
+/* HiDPI support 
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    .icheckbox_futurico,
+    .iradio_futurico {
+        background-image: url('../imgfuturico@2x.png');
+        -webkit-background-size: 144px 19px;
+        background-size: 144px 19px;
+    }
+}*/

@@ -1,0 +1,27 @@
+<div class="ui_gallery cms_view_blocks">
+    <h1>{if $headline}{$headline}{else}Фотогалерея{/if}</h1>
+   
+    <div class="ui_gallery__form">
+
+                    <form action="/action/admin/gallery/ui_upload/" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="table" value="{$group_table}" >
+                        <input type="hidden" name="field" value="{if $field}{$field}{else}photo{/if}" >
+                        <input type="hidden" name="id" value="{$group_id}" >
+                        <input type="hidden" name="current_url_link" value="{#CURRENT_URL_LINK}" >
+
+                        <input type="file" name="file" class="ui_gallery__file" multiple style="opacity: 0;" accept="image/*" />
+                        
+                    </form>
+
+    </div>
+
+    <div style="clear:both;height:7px;">&nbsp;</div>
+    
+    <div class="ui_gallery__layout">
+        {$cms_gallery_layout}
+    </div>       
+    
+    <div style="clear:both;"></div>
+</div>  
+
+    

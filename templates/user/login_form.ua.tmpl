@@ -1,0 +1,82 @@
+<form id="form-auth-login" name="form_log"  class="addquestion" action="/{#LANGUAGE_URL}action/cms/login/" method="POST" >
+    
+    <h3>{text name="MSG_USER_AUTH_MAIL"}</h3>
+            
+    <input type="hidden" name="user_mode" value="registered" /> 
+    <input type="hidden" name="source" value="site" /> 
+    <input type="hidden" name="_return_path" value="{#CURRENT_URL_FORM}" />
+
+    <div id="form-auth-login-error" >&nbsp;</div>
+
+    <div class="wrap_fields log_form">
+        <label for="user_name">{text name='MSG_USER_ENTER_NAME'}*</label>
+        <input type="text" id="user_name" name="login" class="required" value=""/>
+   
+        <label for="user_password">{text name="MSG_USER_YOUR_PASSWD"}*</label>
+        <input type="password" id="user_password" name="passwd"
+               class="required" value=""/>
+    </div>		
+
+    <a href="#forgot_form" class="forgot_pass show_fancy" >{text name="MSG_USER_REMIND"}</a>
+    
+	{if @_is_captcha && !empty($captcha_html)}
+	{*	<table><tr>
+			<td class="tright">Число на картинке<span class="asterix">*</span>:</td>
+			<td>
+				<table cellspacing="0" cellpadding="0"><tr><td>{$captcha_html}</td><td><input type="text" maxlength="6" size="6" name="captcha_value"></td></tr></table>
+				<span class="comment">Введите число, показанное на картинке</span>
+			</td>
+		</tr></table>
+    *}  
+	{/if}
+	        
+    <div class="wrap_btn">
+        <button class="btn_yellow btn-form" onclick="return checkRequiredLog('form-auth-login','log_form');">{text name="MSG_USER_LOGINING"}</button>
+    </div>
+    
+</form>
+  
+<form id="register"  name="form_registered" class="formUser" method="POST" action="/{#LANGUAGE_URL}action/user/register/" data-deltaajax="on">
+    <input type="hidden" name="_error_path" value="{#CURRENT_URL_FORM}">
+    
+    <h3>{text name="MSG_USER_REGISTER_OR"}</h3>
+    
+    <div id="register_error"></div>
+    
+    <div class="wrap_fields required">  
+        
+        <label for="reg_user_name"><span>{text name="MSG_USER_LASTNAME_FIRSTNAME"}</span></label>
+        <input name="user_name" class="username" type="text" id="reg_user_name" value="" />
+    </div>
+    
+    <div class="wrap_fields required">      
+        <label for="reg_mail"><span>E-mail</span></label>
+        <input type="email" name="user_email" class="useremail" id="reg_mail" value="" >
+    </div>    
+
+    <div class="form_section checkboxes">
+        <label class="field-agree">
+            <input type="checkbox" id="field-agree" checked="checked">
+            <b><i></i></b>
+            <span>{text name="MSG_FORM_CHECK_AGREE"}</span>
+        </label>
+        <a href="/{#LANGUAGE_URL}privacy/" target="_blank">*{text name="MSG_SITE_CHECK_AGREE_LINK"}</a>
+    </div>
+    {*
+    <div class="wrap_fields">          
+        <div class="wrap_ruls">
+            <div class="wrap_check">
+                <input type="checkbox" id="ruls" name="accept" checked="">
+                <label for="ruls"></label>
+            </div>
+            <label for="ruls">{text name="MSG_USER_I_AGREE"}</label>
+        </div>
+        
+    </div>
+    <a href="#">*Посилання на деталі згоди</a> *}
+    
+    <div class="wrap_btn">
+        <button class="btn_yellow btn-form" onclick="return checkRequired('register');">{text name="MSG_USER_REGISTRATION_NOW"}</button>
+    </div>
+    
+</form>

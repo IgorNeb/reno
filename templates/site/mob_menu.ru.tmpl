@@ -1,0 +1,43 @@
+<div class="home_menu">
+    <div class='menu-top'>
+        <div class="menu-top__1">
+            <a href="/{#LANGUAGE_URL}" title="{#SEO_LOGO_A_TITLE}" class="logo">
+                <img src="{#DESIGN_URL}img/logo.svg" alt="{#SEO_LOGO_TOP_ALT}" title="{#SEO_LOGO_TOP_TITLE}"/>
+            </a>
+            <div class="date">{block name="timework"}</div>
+        </div>
+        <div class="menu-top__2"><a></a></div>
+        <div class="menu-top__3"><a></a></div>
+        <a class="back"></a>
+        <a class='close'></a>
+    </div>
+    <ul class="menu-1">
+        <tmpl:menu>
+        <li>
+            <a class="{$class} {if $show_submenu}sub-category {/if}" {if $url}href='{$url}'{/if} title="{$name}" >{$name}{if $show_submenu}<span></span>{/if}</a>
+            {if $show_submenu}
+            <ul class="menu-2">
+                <tmpl:menu_2>
+                <li>
+                    <a  {if $show_submenu}class="dog-category"{else}class="sub"{/if} {if $url}href='{$url}'{/if} title="{$name}" >{$name}<span></span></a>
+                    {if $show_submenu}
+                    <ul class="menu-3 mob-dropdown">                      
+                        <tmpl:menu_3>
+                            <li><a {if $url}href='{$url}'{/if} title="{$name}" class="sub {$class}" >{$name}</a></li>
+                        </tmpl:menu_3>                        
+                    </ul>
+                    {/if}
+                </li>
+                </tmpl:menu_2>
+            </ul>
+            {/if}
+        </li>
+        </tmpl:menu>
+        <tmpl:top_menu>
+        <li>
+            <a class="topsmall" {if $url}href='{$url}'{/if} title="{$name}" >{$name}</a>
+        </li>
+        </tmpl:top_menu>
+    </ul>
+</div>
+     

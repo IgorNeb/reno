@@ -1,0 +1,150 @@
+<table class="store" style="width:100%;">
+    <tbody><tr>
+        <td>{$store_data}</td>
+        <td align="right" valign="top"><table>
+    <tbody><tr>
+        <td><b>Дата добавления:</b></td>
+        <td>{$date}</td>
+    </tr>
+    <tr>
+        <td><b>№ заказа:</b></td>
+        <td>{$id}</td>
+    </tr>
+    <tr>
+        <td><b>Способ оплаты:</b></td>
+        <td>{$delivery_pay}</td>
+    </tr>
+        <td><b>Способ доставки:</b></td>
+        <td>{$delivery_type}</td>
+    </tr>
+    </tbody></table></td>
+    </tr>
+</tbody></table>
+ <table class="address" style="width:100%;">
+    <tbody><tr class="heading">
+        <td width="40%"><b>Адрес оплаты</b></td>
+        <td ><b>Адрес доставки</b></td>
+    </tr>
+    <tr>
+        <td>{$name}<br>
+            {if $user_address}{$user_address}<br>{/if}
+            {if $email}{$email}<br>{/if}
+            {$phone}</td>
+        <td>{$name}<br>{$city} <br/>{$address}</td>
+    </tr>
+</tbody></table>
+<table class="product" style="width:100%;">
+    <tbody><tr class="heading">
+            <td style='width:40%'><b>Товар</b></td>
+            <td><b>Модель</b></td>
+            <td><b>Код</b></td>
+            <td align="right"><b>К-ство</b></td>
+            <td align="right"><b>Цена за единицу</b></td>
+            <td align="right"><b>Итого</b></td>
+        </tr>
+    <tmpl:products>
+        <tr>
+            <td>{$name}</td>
+            <td>{$articul}</td>
+            <td>{$code}</td>
+            <td align="right">{$amount}</td>
+            <td align="right">{$price} грн</td>
+            <td align="right">{$total_price} грн</td>
+        </tr>
+    </tmpl:products>    
+        <tr>
+            <td align="right" colspan="5"><b>Сумма:</b></td>
+            <td align="right">{$total_price} грн</td>
+        </tr>
+        {if $delivery_coast}
+        <tr>
+            <td align="right" colspan="5"><b>{$delivery_type}:</b></td>
+            <td align="right">{$delivery_coast} грн</td>
+        </tr>
+        {/if}
+        {if $is_discount}
+         <tr>
+            <td align="right" colspan="5"><b>Скидка:</b></td>
+            <td align="right">{$discount_code} грн</td>
+        </tr>
+        {/if} 
+        <tr><td align="right" colspan="5"><b>Итого:</b></td>
+            <td align="right">{$total_w_delivery_price} грн</td>
+        </tr>
+    </tbody></table>
+   {if $comment} 
+<table class="commentr" style="width:40%;">
+    <tbody><tr class="heading">
+            <td><b>Комментарий</b></td>
+        </tr>
+        <tr>
+            <td>{$comment}</td>
+        </tr>
+</tbody></table>
+{/if}
+<style>
+    body {
+	background: #FFFFFF;
+}
+body, td, th, input, select, textarea, option, optgroup {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+h1 {
+	text-transform: uppercase;
+	color: #CCCCCC;
+	text-align: right;
+	font-size: 24px;
+	font-weight: normal;
+	padding-bottom: 5px;
+	margin-top: 0px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #CDDDDD;
+}
+.web_link{display:none;}
+.store {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.div2 {
+	float: left;
+	display: inline-block;
+}
+.div3 {
+	float: right;
+	display: inline-block;
+	padding: 5px;
+}
+.heading td {
+	background: #ddedf1;
+}
+.address, .product, .commentr  {
+	border-collapse: collapse;
+}
+.address {
+	width: 100%;
+	margin-bottom: 20px;
+	border-top: 1px solid #CDDDDD;
+	border-right: 1px solid #CDDDDD;
+}
+.address th, .address td, .commentr th, .commentr td {
+	border-left: 1px solid #CDDDDD;
+	border-bottom: 1px solid #CDDDDD;
+	padding: 5px;
+	vertical-align: text-bottom;
+}
+.commentr th, .commentr td{	border-right: 1px solid #CDDDDD;	border-top: 1px solid #CDDDDD;}
+.product {
+	width: 100%;
+	margin-bottom: 20px;
+	border-top: 1px solid #CDDDDD;
+	border-right: 1px solid #CDDDDD;
+}
+.product td {
+	border-left: 1px solid #CDDDDD;
+	border-bottom: 1px solid #CDDDDD;
+	padding: 5px;
+}
+
+</style>

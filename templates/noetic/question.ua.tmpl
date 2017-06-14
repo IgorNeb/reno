@@ -1,0 +1,24 @@
+<div class="test__wrap_question" style="display:block;">
+    <div class="wrap_head_question">
+        {if $image}
+        <div class="test__wrap_image">
+            <img src="{$image}" alt="{$name}">
+        </div>
+        {/if}
+        <div class="wrap_h4">
+            <h4>{@step}. {$name}</h4>
+        </div>
+    </div>
+
+    <div class="wrap_answers">
+        <ul>
+            <tmpl:answer>
+                <li>
+                    <input type="radio" id="answer_{$id}" name="question" value="{$id}" {if $id == @answer_id}checked{/if}>
+                    <label for="answer_{$id}">{$name}</label>
+                    <div class="check"></div>
+                </li>                
+            </tmpl:answer>
+        </ul>
+    </div>
+</div>

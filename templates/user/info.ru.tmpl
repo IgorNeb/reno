@@ -1,0 +1,54 @@
+<div class="my_hiiden">
+    <!-- user.info /-->
+    <div class="slider_h1">ЛИЧНЫЙ КАБИНЕТ <a href="#" onclick="$('.my_hiiden').hide();$('body').removeClass('fixed');">Закрыть <span>x</span></a></div> 
+	<div class="profile active">
+            <b>ПРОФИЛЬ</b>
+		<div class='show_history'>
+				<div><span>Ваш персональный ID:</span><span>{$user.id}</span></div>
+				<div><span>ФИО:</span><span>{$user.name}</span></div>
+				<div><span>Телефон:</span><span>{$user.phone}</span></div>			
+				<div><span>E-mail:</span><span>{$user.email}</span></div>
+				<div><span>Адрес:</span><span>{$user.address}</span></div>
+				<div><span>Ваш логин:</span><span>{$user.login}</span></div>
+				<div><span>Пароль:</span><a href="/{#LANGUAGE_URL}user/changepassword/">Изменить</a></div>			
+				<span class='center'><a href="/{#LANGUAGE_URL}user/change/" class="but_color">Редактировать</a></span>
+		</div>
+	</div>
+    
+	<div class="profile" >
+		<b>ДАННЫЕ О СКИДКАХ</b>
+		<div class="discount_first show_history" style="display:none;"><span>Ваша персональная скидка</span><span >{$user.discount}%</span></div>			
+	</div>
+    
+        {if $show_orders}
+	<div class="profile" >
+		<b>ПОСМОТРЕТЬ ИСТРИЮ ЗАКАЗОВ</b>			
+                <div class="profile__body show_history" style="display:none;">
+                    <p>Чтобы ознакомиться с содержимым заказа, нажмите на дату или на сумму</p>
+                    <tmpl:orders>
+                        <a href="#" onclick="showHistory('{$order_id}');return false;" class="history_row"><div class="history_row__date">{$day} {$month} {$year}</div><div class="history_row__price">{$total_discount_price} <small>грн</small></div></a>
+                    </tmpl:orders>
+                </div>
+	</div>
+        {/if}
+    
+        {if $show_maillist}
+        <div class="profile" >
+		<b>Управление рассылками</b>
+                <div class="checkbox_filter show_history" style="display:none;">
+                    <form action="/action/maillist/groupscribe/" method="POST" id="maillist" delta-ajax="on">
+                        <input type="hidden" name="_return_path" value="?">
+                        <tmpl:maillist>
+                            <div class='flied'>     
+                                <input id="CheckBox{$id}"  type="checkbox" class="CheckBox icheck" name="category[]" {if $active}checked{/if} value="{$id}">
+                                <label for="CheckBox{$id}">{$name}</label>
+                            </div>
+                        </tmpl:maillist>	
+                      <span class='center'><input type="submit" class="but_color" value="Сохранить" /></span>
+                    </form>
+                </div>
+	</div>
+        {/if}
+
+
+</div>

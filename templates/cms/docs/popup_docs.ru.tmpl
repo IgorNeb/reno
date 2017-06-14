@@ -1,0 +1,25 @@
+<div class="help__wrap">
+
+    <a href="#" class="help__button" onclick="$(this).parent().find('.help__body').toggle();" ><b>?</b> &nbsp;&nbsp;Справочник</a>
+    
+    <div class="help__body">
+        <ol>
+        <tmpl:info>
+            <li>
+                {if $docs_txt}
+                <a href='#' class='' onclick='$.fn.custombox({url:$("#infodocs_{$id}").html(),title: "{$name}",overlay: false});return false;'>{$name}</a>
+                <div id='infodocs_{$id}' style='display:none'>
+                    <div>{$docs_txt}</div>
+                    {if $docs_file}
+                        <a href='/download{$docs_file}?name={$name}' class="help-btn__down">Скачать файл</a>
+                    {/if}
+                </div>
+                {else}
+                    <a href='/download{$docs_file}?name={$name}' class="help-btn__down">{$name} (Скачать)</a>
+                {/if}
+            </li>
+        </tmpl:info>    
+        </ol>    
+    </div>
+    
+</div>

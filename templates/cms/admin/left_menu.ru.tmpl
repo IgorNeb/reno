@@ -1,0 +1,26 @@
+<tmpl:row>
+    {if !$parent}
+	<div class="mainBlocks">
+		<div class="mainBlocksCover {if $url=='javascript:void(0);'}nolink{/if}">
+		<div class="mainBlocksIco {$uniq_name}">&nbsp;</div>
+		<a class="mainBlocksText" href="{$url}" elem_id="{$id}">{$name}</a>
+		<div class="clearB"></div>
+		</div>
+			
+		{if $children_content}
+		<div class="innerBlocks">
+			{$children_content}
+		</div>
+		{/if}
+	</div>
+    {else}
+        <div class="innerBlocksValue {if $children_content}hasChildren{/if}">
+            <a href="{$url}" class="{if $url=='javascript:void(0);'}nolink{/if}" {if $children_content}elem_id="{$id}"{/if}>
+		{if $children_content}<div class="square">&nbsp;</div>{/if}
+                <div class="innerBlocksText">{$name}</div>
+                <div class="clearB"></div>
+            </a>
+            {if $children_content}{$children_content}{/if}
+        </div>    
+    {/if}
+</tmpl:row>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="{#LANGUAGE_CURRENT}">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">	
+    <title>{text name="MSG_SITE_PAGE_NOTFOUND"}</title>
+    <meta name="description" content="{$description}" />
+    <meta name="theme-color" content="#f2f2f2">
+    <link href="{#CMS_URL}favicon.ico" rel="shortcut icon" />
+
+    {if $follow} <meta name="robots" content="noindex,follow" />
+    {elseif !$is_index} <meta name="robots" content="noindex,nofollow" />
+    {else}	<meta name="robots" content="index,follow" /> 	{/if}
+    
+    {$canonical}
+    
+    <link href="{#DESIGN_URL}css/bootstrap.grid.css" rel="stylesheet"/>
+    <link href="{#DESIGN_URL}css/main.css" rel="stylesheet"/>
+
+    <script src="{#DESIGN_URL}js/jquery-3.1.0.min.js" type="text/javascript"></script>
+    <!--<script src="{#DESIGN_URL}js/jquery-migrate-3.0.0.min.js" type="text/javascript"></script>-->
+    <script type="text/javascript">var langURL = '{#LANGUAGE_URL}';</script>
+</head>
+<body>
+    
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="row">
+                <nav class="header_menu">
+                    <ul>
+                        <tmpl:topMenu>
+                        <li><a class="{$class}" title="{$name}" {if $url}href="{$url}"{/if}>{$name}</a>
+                        </tmpl:topMenu>                         
+                    </ul>
+                </nav>
+                <div class="logo">
+                    <a {if !$isMain}href="/{#LANGUAGE_URL}"{/if} title="{#SEO_LOGO_A_TITLE}" class="logo">
+                        <img src="{#DESIGN_URL}svg/logo.svg" alt="{#SEO_LOGO_A_TITLE}"">
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </header>   
+
+         
+    <main>
+   
+    
+    <section class="form_section">
+        <div class="container">
+            <div class="row" style="text-align: center;">
+                <img src="{#DESIGN_URL}img/404.png" style="width:70%" alt='{text name="MSG_SITE_PAGE_NOTFOUND"}'/>
+                    <div class="error__title">
+                        <h1>{text name="MSG_SITE_PAGE_NOTFOUND"}</h1>
+                    </div>
+            </div>
+        </div>
+    </section>
+         
+   </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer_wrap">
+                    <div class="social">
+                        <p>Соціальні медіа</p>
+                        <div class="icon_wrap">
+                            <tmpl:socbutton>
+                                <a href="{$link}" class="{$class} social_icon" target="_blank" {if $image}style="background-image: url('{$image}')"{/if}></a>
+                            </tmpl:socbutton>                            
+                        </div>
+                    </div>
+                    {*<div class="language">
+                        <span class="active">Українська</span>
+                        <div class="hidden_lang"></div>
+                    </div>*}
+                </div>
+                <div class="footer_bottom">
+                    <span class="left"><a href="https://www.renault.ua" target="_blank">Корпоративний сайт</a></span>
+                    <span class="right">{block name="copyright"}</span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div id="ajax_responses"></div>
+    
+    <link href="{#DESIGN_URL}css/jquery-ui.min.css" rel="stylesheet"/> 
+    <script type="text/javascript" src="{#DESIGN_URL}js/jquery.mask.min.js"></script>
+    <script type="text/javascript" src="{#DESIGN_URL}js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{#DESIGN_URL}js/script.js"></script>
+
+    <script type="text/javascript" src="/js/jquery/jquery.form.min.js"></script>    
+    <script type="text/javascript" src="/js/shared/global_site.js" ></script>
+    <script type="text/javascript" src="/js/shared/functions.js" ></script>
+
+    </body>
+</html>

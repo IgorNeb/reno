@@ -1,0 +1,28 @@
+{if $type == 'events'}
+    <tmpl:news> 
+        <div class="event__item more__item">
+            {if $image}<img src="/uploads/{$image}" alt='{$headline}'/>
+            {else}<a ><img src="/design/bentley/img/news.jpg" alt="news"/></a>{/if}
+            <div class="shadow"></div>
+            <div class="event__box">
+                <div class="event__date">{$date_txt}</div>
+                <div class="event__title">{$headline}</div>
+                <div class="event__description">{$announcement}</div>
+                <a href="{$url}" title='{$headline}' class="btn-blue">{text name="MSG_SITE_READMORE"}</a>
+            </div>
+        </div>
+    </tmpl:news>    
+
+{else}
+<tmpl:news>
+    <div class="news__item col-md-6 no-padding more__item">
+        {if $image}<a href="{$url}" title="{$headline}"><img src="/i/news_main/{$image}" alt="{$headline}"/></a>
+        {else}<a ><img src="/design/bentley/img/news.jpg" alt="news"/></a>{/if}
+        <div class="news__box">
+            <a href="{$type_url}" title="{$type}" class="news__status">{$type}</a>
+            <a href="{$url}" title="{escape text=$headline}" class="news__title">{$headline}</a>
+            <div class="news__date">{$date_txt}</div>
+        </div>
+    </div>
+</tmpl:news>
+{/if}

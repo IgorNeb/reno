@@ -1,0 +1,12 @@
+<tmpl:news>
+    <div class='news_block {$class_name}'>
+        <div class='border'></div>
+        {if $image}<img src='/i/news{if $class_name=="big"}_big{/if}/{$image}' alt="{$headline}"/>{/if}
+        <div class='coffe_white'>					
+            <a  href="{$url}/" title="{$headline}">{$headline}</a>
+            <span>{$announcement}</span>	                     
+        </div>
+        <div class='helper'></div>
+         <a  href="{$url}/" class='mask'>&nbsp;</a>	
+    </div>		
+</tmpl:news>

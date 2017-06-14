@@ -1,0 +1,12 @@
+<tmpl:video>
+    <div class="video-full"> 
+             {if $type == 'youtube'}                    
+                <iframe width="100%" height="640" src="//www.youtube.com/embed/{$code}" frameborder="0" allowfullscreen></iframe>
+            {else}
+                <iframe src="//player.vimeo.com/video/{$code}?title=0&byline=0&portrait=0&badge=0" width="1180" height="640" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+            {/if} 
+    </div>
+    <div class="date-video">{$dateto}</div>
+    {if $announcement}<p>{$announcement}</p>{/if}
+    {$content}   
+</tmpl:video>

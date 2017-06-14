@@ -1,0 +1,29 @@
+<div class="authForm">			
+    <div id="container">
+        <a href="/" class="signature">Вернуться к просмотру сайта</a>
+	<div class="form">				
+            <div class="block">
+                <div class = "hint"><div class = "triangle-left"></div><div class="delta_error">Неверный логин<br />или пароль.</div></div>
+		<form name="LoginForm" id="LoginForm" action="/{#LANGUAGE_URL}action/cms/login/" method="POST" onsubmit="AjaxRequest.form('LoginForm', 'Отправка данных...', {});return false;">
+                    <div class="login-main-popup-wrap login-popup-wrap" id="authorize">
+			<input type="hidden" name="_return_path" value="{#CURRENT_URL_FORM}"/>
+			<input type="hidden" name="source" value="admin"/>
+                        <h1>Авторизация</h1>		
+                        <p class="comment">Не забудьте, логин и пароль чувствительны к регистру букв.</p>			
+                        <label class="title">Логин:</label><input class="text border required" type="text" id="login_id" name="login" value="">
+                        <div class = "hintField1" ><div class = "triangle-left"></div><div class="delta_error" id="hintLogin">Это поле обязательно<br />для заполнения</div></div><br><br>
+                        <label class="title">Пароль:</label><input class="text border required" type="password" name="passwd" value="">
+                        <div class = "hintField2" ><div class = "triangle-left"></div><div class="delta_error" id="hintPass">Это поле обязательно<br />для заполнения</div></div><br><br>
+                        <!--{if @is_captcha && !empty($captcha_html)}
+                        <label class="title">Число на картинке</label>{$captcha_html}                       
+                        <div class = "hintField2"><div class = "triangle-left"></div><div class="delta_error">Это поле обязательно<br />для заполнения</div></div><br><br>
+                        {/if}-->
+                        <input type="checkbox" checked="" value="1" name="remember" id="remember"><label for="remember">Запомнить меня</label><br><br>
+                        <input id = "sendRequest" class="button border" type="submit" value="ВХОД">&nbsp;&nbsp;<a class="forgot" href="?amnesia=1">напомнить пароль?</a>
+                    </div>
+		</form>					
+            </div>
+	</div>
+	<br><span class="signature">Copyright Delta CMS, 1998 - <?php echo date('Y'); ?></span>
+    </div>			
+</div>

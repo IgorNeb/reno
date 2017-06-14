@@ -1,0 +1,8 @@
+ <select data-placeholder="Тип магазина" placeholder="Тип магазина" class="chosen-select" name="type" onchange="changeMap();">
+    <option value="0"></option>
+    <tmpl:types><option value="{$type}" {if $selected}selected="selected"{/if}>{$name}</option></tmpl:types>   
+</select>
+<select data-placeholder="Город" placeholder="Город" class="chosen-select" name="city" onchange="changeMap();">
+    <option value="0"></option>
+    <tmpl:cities><option value="{$id}"  {if $selected}selected="selected"{/if}>{$name}</option></tmpl:cities>
+</select>

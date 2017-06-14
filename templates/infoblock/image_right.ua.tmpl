@@ -1,0 +1,21 @@
+<div class="service__item service__item-right {if $show_title} with-title {/if}">
+
+{* $admin_link *}
+{if $show_title}
+    <div class="infoblock__title">{$title}</div>
+    {if $subtitle}<div class="infoblock__subtitle">{$subtitle}</div>{/if}
+{/if}            
+<tmpl:message>
+  
+        {if $image}<img src="{$image}" alt="{$name}" class="service-mob"/>{/if}
+        <div class="service__box service-mob">
+            <div class="service__box__inside">
+                <div class="h2">{$name}</div>
+                {if $index == 1}{@admin_link}{/if}
+                {if $description}<p>{$description}</p>{/if}
+                {if $link}<a href="{$link}" class="btn-blue">{if $button}{$button}{else}{text name="MSG_SITE_READMORE"}{/if}</a>{/if}    
+            </div>
+        </div>
+</tmpl:message>
+
+</div>

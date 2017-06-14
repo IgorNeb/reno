@@ -1,0 +1,65 @@
+ 
+<div class="main">
+    {if @banner__total > 1 }
+    <div class="slider-auto">
+        <div class="swiper-wrapper">
+    {/if}   
+    
+    <tmpl:banner>
+        
+        {if @banner__total > 1 }
+            <div class="swiper-slide">
+        {/if}
+        
+        {if $is_video && !#IS_MOBILE}
+            <video id="bgvid" preload="none" controls="controls" loop="loop" poster="/i/slider/{$image}" width="100%">
+                <source src="{$video_mp4}" type="video/mp4"/>
+                {if $video_webm}<source src="{$video_webm}" type="video/webm"/>{/if}
+            </video>
+
+        {else}
+            {if #IS_MOBILE && $image_small}
+                <img src="/i/slider_small/{$image_small}" alt="{escape text=$title}" />
+            {elseif $image}
+                <img src="/i/slider/{$image}"  alt="{escape text=$title}"
+                    data-large="/i/slider/{$image}"
+                    data-small="/i/slider_small/{$image_small}"
+                    data-medium='/i/slider_medium/{$image}' />
+            {/if}           
+            <div class="shadow"></div>
+        {/if}
+            
+        <div class="main__box">
+            <h1 {if $color_title}style="color:{$color_title}"{/if}>{$title}
+            {if $subtitle}<br>{$subtitle}{/if}
+            </h1>
+            {if $description}
+            <p class="main-slider__description" {if $color_bg}style="color:{$color_bg}"{/if}>{$description}</p>
+            {/if}
+            {if $link}<a href="{$link}" onclick="banner_click({$id});" class="hidden-dekstop btn-blue"
+                         target="{if $new_window == 'true'}_blank{else}_top{/if}">
+            {if $button}{$button}{else}{text name="MSG_SITE_READMORE"}{/if}</a>
+            {/if}
+
+            {if $link_dealer}<a href="/{#LANGUAGE_URL}dealers/" class="hidden-dekstop btn-default">{text name="MSG_SITE_SEARCH_DEALER_SLIDER"}</a>{/if}
+
+        </div>
+                <div class="main__btns hidden-mob">
+                    {if $link}<a href="{$link}" onclick="banner_click({$id});" class="btn-blue"
+                                 target="{if $new_window == 'true'}_blank{else}_top{/if}">
+                    {if $button}{$button}{else}{text name="MSG_SITE_READMORE"}{/if}</a>
+                    {/if}
+
+                    {if $link_dealer}<a href="/{#LANGUAGE_URL}dealers/" class="btn-default">{text name="MSG_SITE_SEARCH_DEALER_SLIDER"}</a>{/if}
+                </div>
+
+        {if @banner__total > 1 }
+            </div>    
+        {/if}
+            
+        
+        </tmpl:banner>
+    
+    {if @banner__total > 1 }</div></div>{/if}
+</div>
+

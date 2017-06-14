@@ -1,0 +1,114 @@
+
+{if $show_greeting}
+<script src="//vk.com/js/api/openapi.js?146" type="text/javascript"></script>
+<script src="/js/shared/login.js"></script> 
+
+<div class="col-xs-12">
+    <section class="wrap_main">
+        <div class="wrap__test_load active">
+            <div class="test__wrap_image">
+                {if $noetic.image}<img src="{$noetic.image}" alt="{$noetic.name}"/>{/if}
+                <div class="test__wrap_heading">
+                    <h2>Тест</h2>
+                    <p>&#171;{$noetic.name}&#187;</p>
+                </div>
+                <div class="test__wrap_text">
+                    <p>{$noetic.content}</p>
+                    <h3>Авторизуватися</h3>
+                    <div class="test__wrap_button">
+                        <a href="#" class="social_icon fb_icon" onClick="fblogin();return false;"></a>
+                        <a href="#" class="social_icon vk_icon" onClick="vklogin();return false;"></a>
+                        <a href="#registered_form" class="social_icon mail_icon show_fancy"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        modal form for registered users
+        <div class="modal_form" id="registered_form">
+            {$login_form}
+            <span class="btn_close"></span>
+        </div>
+
+        modal for remind password
+        <div class="modal_form" id="forgot_form">
+            <span class="btn_close"></span>
+            <form class="formUser" name="forgot_pass" id="reminder" action="/{#LANGUAGE_URL}action/user/reminder/"
+                  data-deltaajax="on" method="POST" >
+                <input type="hidden" name="_return_path" value="{#CURRENT_URL_FORM}">
+                <input type="hidden" name="_error_path" value="{#CURRENT_URL_FORM}">
+                
+                <h3>{text name="MSG_USER_FORGOT_LABEL"}</h3>
+                
+                <div id="reminder__error" class="error"></div>
+                
+                <div class="wrap_fields required">
+                    <label><span>E-mail</span></label>
+                    <input type="text" name="email" class="remind_email" value="{$email}"/>
+                    <span class="error_txt"></span>
+                </div>
+                <div class="wrap_btn">
+                    <button class="btn_yellow btn-form" onclick="return checkRequired('reminder');">{text name="MSG_USER_FORGOT_SEND"}</button>
+                    
+                </div>
+            </form>
+            <div class="modal_form wrap_end">
+                <h3>{text name="MSG_USER_FORGOT_SEND_OK"}</h3>
+            </div>
+        </div>
+        
+    </section>
+</div>  
+
+{elseif $result_tmpl}
+    <div class="col-xs-12">
+        {$result_tmpl}
+    </div>
+
+{elseif $repeat}
+
+<div class="col-xs-12">
+    <section class="wrap_main">
+        <div class="wrap__test_load active">
+            <div class="test__wrap_image">
+                {if $noetic.image}<img src="{$noetic.image}" alt="{$noetic.name}"/>{/if}
+                <div class="test__wrap_heading">
+                    <h2>Тест</h2>
+                    <p>&#171;{$noetic.name}&#187;</p>
+                </div>
+                <div class="test__wrap_text reload_test">
+                    <p>{$noetic.content}</p>
+                    <p><a class="btn_yellow" href="/{#LANGUAGE_URL}action/noetic/steps/?task=repeat">Пройти тест ще раз</a></p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{else}
+<div class="col-xs-12" id="wrap_noetic">
+    <section class="wrap_main">
+        <div class="wrap__pages_test">
+            <div class="wrap__page_test" id="steps_noetic"> 
+                {$steps_noetic}
+            </div>
+            <div class="test__wrap_navigat">
+                <div class="wrap_button">
+                    <button class="prev" onclick="Noetic.prev();">попереднє питання <span></span></button>
+                    <button class="next active_block" disabled onclick="Noetic.next();">наступне питання <span></span></button>
+                    <button class="send_result" disabled onclick="Noetic.next();">результат тесту <span></span></button>
+                </div>
+                <div class="wrap_paginat">
+                    <!--<span class="pagination"></span>-->
+                </div>
+                <input type="hidden" name="step" value="0" class="selected_steps" />
+                <input type="hidden" name="index_step" value="{$step}" />
+                <input type="hidden" name="count_step" value="{$count_step}" />
+            </div>
+        </div>
+    </section>
+</div>
+   
+{/if}

@@ -1,0 +1,15 @@
+<div id="menuTabs" class="{$class}">
+    <ul class="menuTabs__ul">
+        <tmpl:row>
+            {if $up}
+                <li><a href="{$url}" ><i class="aicons inline up"></i>{$name}</a></li>
+            {else}
+                <li><a href="{$url}" {$attribute} {if $active}class="selected" onclick="return false;"{/if}>{$name}</a></li>
+            {/if}
+        </tmpl:row>    
+    </ul>
+    <br style="clear: left;">
+    <div>
+        {$content}
+    </div>    
+</div>

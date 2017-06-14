@@ -1,0 +1,27 @@
+<!-- Код електронной торговли -->
+<script type="text/javascript">
+$(window).load(function() {
+    //добавляем данные по транзакции
+    ga('ecommerce:addTransaction', {
+        'id': '{@order_id}',
+        'affiliation': '{#CMS_HOST}',
+        'revenue': '{@total_price}', 
+        'shipping': '0', //стоимость доставки
+        'currency': 'UAH'  
+    });
+
+    <tmpl:products>  
+        ga('ecommerce:addItem', {
+            'id':'{@order_id}',  
+            'name':'{$name}',    
+            'sku':'{$articul}',     
+            'category':'{$group_name}',
+            'price':'{$price}', 
+            'quantity':'{$amount}'                  
+        });
+    </tmpl:products>
+
+    //теперь наши данные нужно передать в Google Analitycs
+    ga('ecommerce:send');
+});
+</script>

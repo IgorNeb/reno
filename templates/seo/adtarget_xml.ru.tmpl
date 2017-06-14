@@ -1,0 +1,20 @@
+<products>
+    <tmpl:products>
+    <product>
+        <id>{$id}</id>
+        <photos>
+            <tmpl:photos>
+                <photo>{$photo}</photo>
+            </tmpl:photos>
+        </photos>
+        <click>{$url}</click>
+        <match>{$url}</match>
+        <special>{$special}</special>
+        <custom>
+            <title>{$title}</title>
+            <price>{$price}</price>
+            {if $old_price}<old_price>{$old_price}</old_price>{/if}
+        </custom>
+    </product>
+    </tmpl:products>
+</products>

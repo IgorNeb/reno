@@ -1,0 +1,63 @@
+
+
+<div style="margin:5px;">&nbsp;</div>
+<center><div id="action_error" align="left" class="action_error"></div></center>  
+<center><div id="action_ok" align="left" class="action_ok"></div></center>  
+
+<div><span id="current_path" ><b>Директория:</b> <span style="color:#777;">{@current_path}/</span></span>  </div>
+<br/>
+
+
+<form id="files_form" action="/{#LANGUAGE_URL}action/admin/cms/logs/view/">
+<input type="hidden" name="_return_path" value="{#CURRENT_URL_FORM}">
+
+<table class="cms_view" border="0" cellspacing="2" > 
+	<thead>
+		<tr>
+			<th width="30%">Имя</th>
+			<th width="10%">Тип</th>
+			<th width="10%">Размер, Кб</th>
+		</tr>
+	</thead>
+	{if @current_path != LOGS_ACTIONS_ROOT && strpos(@current_path, LOGS_ACTIONS_ROOT) !== FALSE}
+	<tr class="odd" onclick="load('{@parent_path}', 0);" style="cursor: pointer;">
+		<td><span class="button_up">&nbsp;</span></td>
+		<td><span class="button_up">&nbsp;</span></td>
+		<td><span class="button_up">&nbsp;</span></td>
+	</tr>   
+	{/if}
+	{if $rows_count == 0}  
+		<tr><td class="no_content" colspan="3">Папка пуста</td></tr>
+	{else}		
+		<tmpl:files>
+			<tr class="{$class}">
+				<td align="left">
+					{if $is_dir}
+						<a href="javascript:void();" onclick="load('{@current_path}/{$filename}', 0, 0)">
+                                                        <span class="folder" ></span>
+							{$filename}
+						</a>
+					{else} 
+						<label for="file_{$count}">
+							<span class="ie_style" ></span>
+							{if strpos($filename, '.log') !== FALSE}
+								<a href="javascript:void(0);" onclick="log_display('{@current_path}/{$filename}', 'date', 'desc', 0);">{$filename}</a>
+							{elseif strpos($filename, '.tar.gz') !== FALSE} 
+								<a href="javascript:void(0);" onclick="load('{@current_path}/{$filename}', 0, 1);">{$filename}</a>
+							{else}
+								{$filename}
+							{/if}
+						</label>
+					{/if}
+				</td>  
+				<td align="left">{$filetype}</td> 
+				<td align="right">{$filesize}</td>
+			</tr>
+		</tmpl:files>
+	{/if}
+</table>
+</form> 
+{if !empty($pages_list)}
+	<p><div style="text-align:right;">Страница: {$pages_list}</div></p>
+	<div style="margin-top:5px;">&nbsp;</div>
+{/if}

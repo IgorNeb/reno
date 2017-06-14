@@ -1,0 +1,56 @@
+
+
+<div style="margin:5px;">&nbsp;</div>
+<center><div id="action_error" align="left" class="action_error"></div></center>  
+<center><div id="action_ok" align="left" class="action_ok"></div></center>  
+
+<div><span id="current_path" ><b>Лог:</b> <span style="color:#777;">{@path}</span></span>  </div>
+
+<form id="files_form" action="/{#LANGUAGE_URL}action/admin/cms/logs/view/">
+<input type="hidden" name="_return_path" value="{#CURRENT_URL_FORM}">
+
+{if !empty($pages_list)}<div style="text-align:right;">Страница: {$pages_list}</div>{/if}
+
+<table class="cms_view" border="0" cellspacing="2" > 
+	<thead>
+		<tr>
+			<th width="20%">
+				Дата &nbsp;
+				<a id="sort_name" href="javascript:void(0);" onclick="log_display('{@path}', 'date', 'asc', 0)">&uarr;</a>
+				<a id="sort_name" href="javascript:void(0);" onclick="log_display('{@path}', 'date', 'desc', 0)">&darr;</a> 
+			</th>
+			<th width="20%">
+				Пользователь &nbsp;
+				<a id="sort_name" href="javascript:void(0);" onclick="log_display('{@path}', 'user_login', 'asc', 0)">&uarr;</a>
+				<a id="sort_name" href="javascript:void(0);" onclick="log_display('{@path}', 'user_login', 'desc', 0)">&darr;</a> 
+			</th>
+			<th width="20%">IP</th>
+			<th width="20%">Локальный IP</th>
+			<th width="1%">$_REQUEST</th>
+			<th width="1%">$_SESSION</th> 
+		</tr>
+	</thead>
+	<tmpl:rows>
+		<tr class="{$class}">
+			<td align="center">{$date}</td>  
+			<td align="left">{$user_login}</td> 
+			<td align="center">{$ip}</td>
+			<td align="center">{$local_ip}</td>
+			<td align="left">
+				<center><a href="javascript:void(0);" onclick='$.fn.custombox({url:$("#uprising_request_{$count}").html(),title: "$_REQUEST",width:890, overlay: false});return false;' class="aicons info">&nbsp;</a></center>
+				<div id="uprising_request_{$count}" class="uprising" style="display:none;">					
+					{$request}
+				</div>
+			</td>
+			<td align="left">
+				<center><a href="javascript:void(0);" onclick='$.fn.custombox({url:$("#uprising_session_{$count}").html(),title: "$_SESSION",width:890, overlay: false});return false;' class="aicons info">&nbsp;</a></center>
+				<div id="uprising_session_{$count}" class="uprising" style="display:none;">					
+					{$session}
+				</div>
+			</td>                        
+		</tr>
+	</tmpl:rows>
+</table>
+</form> 
+
+{if !empty($pages_list)}<div style="text-align:right;">Страница: {$pages_list}</div>{/if}

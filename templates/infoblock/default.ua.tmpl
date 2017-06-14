@@ -1,0 +1,16 @@
+{if $show_title}
+    <div class="infoblock__title">{$title}</div>
+    {if $subtitle}<div class="infoblock__subtitle">{$subtitle}</div>{/if}
+{/if}            
+<tmpl:message>
+    <div class="big-shadow" {if $image}style="background:url('{$image}');"{/if} >
+    
+        <div class="shadow"></div>
+        <div class="conContent">
+            <div class="h2">{$name}</div>
+            {if $index == 1}{@admin_link}{/if}
+            {if $description}<p>{$description}</p>{/if}
+            {if $link}<a href="{$link}" class="btn-blue">{if $button}{$button}{else}{text name="MSG_SITE_READMORE"}{/if}</a>{/if}    
+        </div>
+    </div>
+</tmpl:message>

@@ -1,0 +1,22 @@
+
+    {if Auth::isAdmin() && BANNER_SHOW_EDIT_LINK}
+        <a href="/admin/banner/bannergroup/banner/?group_id={$group_id}" target="_blank">[ред. Баннер]</a><br/>
+    {/if}
+
+    <tmpl:banner>
+        <div class="banner">
+            <img src="{$image_url}" alt="{$title}">
+            <div class="banner__box">
+                {if $title}<b {if $color_title}style="color:{$color_title}"{/if}>{$title}</b>{/if}
+                {if $subtitle}<p {if $color_title}style="color:{$color_title}"{/if}>{$subtitle}</p>{/if}
+                {if $description}
+                    <span {if $color_bg}style="color:{$color_bg}"{/if}>{$description}</span>
+                {/if}
+                {if $link}<a href="{$link}"  onclick="banner_click({$id});" class="btn-yellow" target="{if $new_window == 'true'}_blank{else}_top{/if}">
+                    {if $button}{$button}{else}{text name="MSG_SITE_READMORE"}{/if}</a>
+                {/if}
+            </div>
+
+      </div>
+    </tmpl:banner>
+   

@@ -1,0 +1,3 @@
+<?php
+Banner::buldCache();
+?>

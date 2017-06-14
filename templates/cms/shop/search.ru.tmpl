@@ -1,0 +1,46 @@
+<div  class="cms_view_blocks"> 
+<h2>Результаты поиска</h2>
+ 
+ {if $count_product == 0} <h3>Поиск не дал результатов...</h3><br/>
+ {else}
+    <p>Показано <b>{$count_product}</b> товаров из <b>{$total}</b></p>
+    
+    <table  class="cms_view" >            
+        <thead><tr>
+                <th style='width:20px;'><input type="checkbox" class="check_all delta-checkbox" ></th>
+                <th >ID</th>
+                {if @show_image}<th >Изображение</th>{/if}
+                <th >Наименование</th>
+                <th >Артикул товара</th>
+                <th >Группа</th>
+                
+                <th style='width:120px;'>Цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tmpl:products>
+                <tr class="{$even}">
+                   <td align="center">
+                       {if @version_show}<input type="checkbox" class="delta-id delta-checkbox" name="product[{$id}][]" value="{$version_id}" />
+                       {else}<input type="checkbox" class="delta-id delta-checkbox" name="product[]" value="{$id}" />{/if}
+                   </td>                    
+                   <td><b>{$id}</b></td> 
+                   {if @show_image}<td>{if $image}<img src="{$image}" width='50px'/>{/if}</td>{/if}
+                   <td><a href="/admin/shop/groups/info/?product_id={$id}" target="_blank">{$name}</a></td>
+                   <td>{$articul}</td>
+                   <td>{$group_name}</td>
+                   
+                   <td>{$newprice} грн</td>                   
+                </tr>
+            </tmpl:products>
+         </tbody>
+         <tfoot>
+             <tr>
+                 <td {if @show_image}colspan="7"{else}colspan="6"{/if} style="text-align:right">
+                     <button name="save_changes" type="submit"><i></i>Сохранить</button>
+                 </td>
+             </tr>
+         </tfoot>
+ </table>
+ {/if}   
+ </div>

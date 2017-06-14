@@ -1,0 +1,48 @@
+<script src="/js/uigallery/jquery.fileupload.js" type="text/javascript"></script>
+<?php /* <link rel="stylesheet" type="text/css" href="/css/uigallery/jquery-ui.css" /> */ ?>
+<link rel="stylesheet" type="text/css" href="/css/uigallery/jquery.fileupload-ui.css" />
+<script>
+$(function () {
+    $(document).ready(function(){ 
+        
+        $(".ui_gallery").each(function(i){             
+             $(this).find(".ui_gallery__layout").attr("id", 'sortable_'+i);
+             $(this).find(".ui_gallery__file").attr("id", 'file_'+i);
+             
+             $('#sortable_'+i).sortable({
+                 update: function( event, ui ) {
+                    var priority_list = new Array();
+                    $(this).find(".gallery_image_layer").each(function(index){
+                        priority_list[index] = $(this).attr('data-id');
+                    });
+                    AjaxRequest.send('', '/action/admin/gallery/table_sort/', 'Сохранение...', true, {'_return_path':'void', 'priority_list':priority_list});
+        
+                 }
+             });
+             $('#sortable_'+i).disableSelection();
+             
+             $('#file_'+i).fileUploader({
+		autoUpload: true,
+		limit: false,
+		selectFileLabel: 'Добавить',
+		allowedExtension: 'jpg|jpeg|gif|png',
+		timeInterval: [1, 2, 4, 2, 1, 5], //Mock percentage for iframe upload
+		percentageInterval: [10, 20, 30, 40, 60, 80],
+                
+                afterEachUpload: function(data, status, uploadData, file_block) { 
+                    
+                    uploadData.parents(".ui_gallery").find(".ui_gallery__layout").append( file_block );
+                    
+		}
+                
+            });   
+        });
+        
+    });
+   
+});
+ function gallery_delete(id, filename) {
+	AjaxRequest.send('', '/action/admin/gallery/ui_delete/', 'Удаление файла', true, {'return_path':'void', 'id':id, 'filename':filename});
+    }
+</script>
+        

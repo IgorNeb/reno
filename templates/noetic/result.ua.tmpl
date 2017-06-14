@@ -1,0 +1,39 @@
+
+        <section class="wrap_share">
+            <div class="wrap_info">
+                <div class="row">
+                    <div class=" col-xs-12 col-md-6">
+                        <div class="share__wrap_left">
+                            <h3>Ти - {$result.name}</h3>
+                            {if $result.image}<img src="{$result.image}" alt="photo">{/if}
+                            {$result.content}
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="share__wrap_right">
+                            {if $result.image}<img src="{$result.image}" alt="photo">{/if}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="share__wrap_left">
+                            <p class="bold_text">Розкажи друзям про <span>Мега</span>нове життя,яке чекає на тебе, та бери участь у розіграші </p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="share__wrap_right">
+                            <a class="share">поділитися з друзями</a>
+                            <div class="share42init" data-title="{$result.name}" data-description="{$result.description}" 
+                                 data-url="http://{#CMS_HOST}/noetic/{$result.uniq_name}/"
+                                 {if $result.image_soc}data-image="http://{#CMS_HOST}{$result.image_soc}"{/if} data-path="/design/renault/js/"></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="share__more">
+                <a class="btn_yellow" href="/{#LANGUAGE_URL}action/noetic/steps/?task=repeat">Пройти тест ще раз</a>
+                <a href="https://www.renault.ua/vehicles/passenger/megane.html" class="more">дізнатися більше</a>
+                <a href="/{#LANGUAGE_URL}test-drive/" class="test_drive">записатися на тест драйв</a>
+            </div>
+        </section>

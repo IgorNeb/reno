@@ -1,0 +1,26 @@
+<div class="service__item {if $show_title} with-title {/if} {if $show_gallery} with-three {/if}">
+    
+{if $show_title}
+    <div class="infoblock__title">{$title}</div>
+    {if $subtitle}<div class="infoblock__subtitle">{$subtitle}</div>{/if}
+    
+{/if}            
+<tmpl:message>
+    {if $image}<img src="{$image}" alt="{$name}" />{/if}
+    <div class="service__box">
+        <div class="service__box__inside">
+            <div class="h2">{$name}</div>
+            {if $index == 1}{@admin_link}{/if}
+            {if $description}<p>{$description}</p>{/if}
+            {if $link}<a href="{$link}" class="btn-blue">{if $button}{$button}{else}{text name="MSG_SITE_READMORE"}{/if}</a>{/if}    
+        </div>
+    </div>
+</tmpl:message>
+
+{if $show_gallery}
+<div class="img-three img_fancybox">
+    <tmpl:gallery><a href="/uploads/{$photo}"  rel='group' class='fancy-box'><img src="/uploads/{$photo}" alt=""/></a></tmpl:gallery>
+</div>
+{/if}
+
+</div>

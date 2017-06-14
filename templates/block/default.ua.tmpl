@@ -1,0 +1,9 @@
+{if Auth::isAdmin()}
+    {if $is_editor}
+        <a href="javascript:void(0);" onclick="EditorWindow('event=editor/content&id={$id}&table_name=block&field_name=content_{#LANGUAGE_CURRENT}', 'editor{$id}'); return false;">[ред.Блок]</a>
+    {else}    
+        <a href="javascript:void(0);" onclick="EditScript('event=editor/content&id={$id}&table_name=block&field_name=content_{#LANGUAGE_CURRENT}', 'editor{$id}'); return false;">[ред.Блок]</a>
+    {/if}    
+{/if}
+
+{$content}

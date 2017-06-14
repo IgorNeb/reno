@@ -1,0 +1,12 @@
+    {if $show_title}<div class="h1">{$name}</div>{/if}    
+    <div class="content-slider">
+        <div class="swiper-wrapper">
+            <tmpl:gallery>
+                <div class="swiper-slide"><img src="/uploads/{$photo}" alt="{$description}"/></div>
+            </tmpl:gallery>              
+        </div>
+        
+        <div class="swiper-pagination"></div>
+        <div class="swiper-prev"></div>
+        <div class="swiper-next"></div>
+    </div>
